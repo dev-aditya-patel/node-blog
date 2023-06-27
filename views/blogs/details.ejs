@@ -1,0 +1,32 @@
+<%- include('../snippets/header.ejs') %>
+<%- include('../snippets/nav.ejs') %>
+<div class="blogs content">
+    <h2>All blogs</h2>
+    
+        <h3><%= blog.title %></h3>
+        <p><%= blog.snippet %></p>
+        <p><%= blog.body %></p>
+
+      <button type="button" class="deleteBtn" data-id="<%= blog._id %>">Delete</button>
+
+    
+    <%- include('../snippets/footer.ejs') %>
+</div>
+<script>
+  const deleteBtn = document.querySelector(".blogs > .deleteBtn");
+  deleteBtn.addEventListener("click",(e)=>{
+    const endpoint = `/blog/delete/${deleteBtn.dataset.id}`;
+    fetch(endpoint,{
+      method:'DELETE'
+    })
+    .then((res)=>res.json())
+    .then((data)=>{
+      window.location.href = data.redirectTo;
+    })
+    .catch((err)=>{
+      console.log(err) 
+    })
+    deleteBtn.style.disabled= 'disabled'
+  }) 
+
+</script>

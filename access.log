@@ -1,0 +1,7 @@
+GET /about 304 - - 12.612 ms
+GET /blog 304 - - 332.716 ms
+GET /blog/create 200 1606 - 4.042 ms
+GET / 304 - - 3.348 ms
+GET /about 304 - - 1.276 ms
+GET /blog 304 - - 249.966 ms
+GET /blog/create 304 - - 2.032 ms
